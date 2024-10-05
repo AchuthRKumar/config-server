@@ -22,6 +22,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                bat "docker rm -f config-container"
+                bat "docker rmi -f config-image"
                 bat "docker build -t config-image ."
                 bat "docker run -p 8088:8088 -d --name config-container config-image"
             }
