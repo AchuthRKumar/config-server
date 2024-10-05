@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat "docker build -t config-image ."
-                bat "docker run -p 8091:8091 -d --name config-container config-image"
+                bat "docker run -p 8088:8088 -d --name config-container config-image"
             }
         }
     }
